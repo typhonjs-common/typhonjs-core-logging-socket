@@ -28,7 +28,7 @@
     "websocket": "^1.0.22"
   },
   "scripts": {
-    "test-client": "node ./test/src/platforms/node/testClient.js",
-    "test-server": "node ./test/src/platforms/node/testServer.js"
+    "test-server-http": "node ./test/src/platforms/node/testServerHTTP.js",
+    "test-server-https": "node ./test/src/platforms/node/testServerHTTPS.js"
   }
 }

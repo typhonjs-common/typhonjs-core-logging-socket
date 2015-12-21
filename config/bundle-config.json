@@ -1,0 +1,24 @@
+{
+   "entryPoints":
+   [
+      {
+         "destBaseDir": "./dist/platforms/browser",
+         "destFilename": "typhonjs-core-logging-socket.js",
+         "formats": ["amd", "cjs"],
+         "mangle": false,
+         "minify": false,
+         "src": "src/SocketLogger.js",
+         "extraConfig": "./config/config-paths-browser.js"
+      },
+
+      {
+         "destBaseDir": "./dist/platforms/browser",
+         "destFilename": "typhonjs-core-logging-socket.min.js",
+         "formats": ["amd", "cjs"],
+         "mangle": true,
+         "minify": true,
+         "src": "src/SocketLogger.js",
+         "extraConfig": "./config/config-paths-browser.js"
+      }
+   ]
+}

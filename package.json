@@ -1,0 +1,35 @@
+{
+  "name": "typhonjs-core-logging-socket",
+  "version": "0.1.0",
+  "homepage": "https://github.com/typhonjs/typhonjs-backbone-parse/",
+  "description": "Provides a logging plugin for typhonjs-core-logging that sends data over a WebSocket or SockJS.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typhonjs/typhonjs-core-logging-socket/typhonjs-core-logging-socket.git"
+  },
+  "jspm": {
+    "main": "src/SocketLogger.js",
+    "dependencies": {
+      "typhonjs-core-backbone-common": "github:typhonjs/typhonjs-core-backbone-common@master",
+      "typhonjs-core-socket": "github:typhonjs/typhonjs-core-socket@master"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.34",
+      "babel-runtime": "npm:babel-runtime@^5.8.34",
+      "core-js": "npm:core-js@^1.2.1"
+    }
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "jspm": "^0.16.19",
+    "typhonjs-config-eslint": "^0.2.1",
+    "typhonjs-core-backbone-common": "github:typhonjs/typhonjs-core-backbone-common@master",
+    "typhonjs-core-gulptasks": "^0.3.0",
+    "websocket": "^1.0.22"
+  },
+  "scripts": {
+    "test-client": "node ./test/src/platforms/node/testClient.js",
+    "test-server": "node ./test/src/platforms/node/testServer.js"
+  }
+}

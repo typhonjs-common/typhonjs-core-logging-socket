@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+/* eslint-disable */
+
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 
@@ -11,7 +13,7 @@ var server = http.createServer(function(request, response)
 
 server.listen(8001, function()
 {
-   console.log((new Date()) + ' Server is listening on port 8001');
+   console.log((new Date()) + ' Server is listening on: ' + JSON.stringify(server.address()));
 });
 
 wsServer = new WebSocketServer(

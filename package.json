@@ -24,7 +24,6 @@
     "gulp": "^3.9.0",
     "jspm": "^0.16.19",
     "typhonjs-config-eslint": "^0.2.1",
-    "typhonjs-core-backbone-common": "github:typhonjs/typhonjs-core-backbone-common@master",
     "typhonjs-core-gulptasks": "^0.3.0",
     "websocket": "^1.0.22"
   },

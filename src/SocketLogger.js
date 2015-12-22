@@ -1,7 +1,7 @@
-import TyphonEvents     from 'typhonjs-core-backbone-common/src/TyphonEvents.js';
+import TyphonEvents     from 'typhonjs-core-backbone-events/src/TyphonEvents.js';
 
-import Socket           from 'typhonjs-core-socket/src/core/Socket.js';
-import Queue            from 'typhonjs-core-socket/src/core/Queue.js';
+import Socket           from 'typhonjs-core-socket/src/Socket.js';
+import Queue            from 'typhonjs-core-socket/src/Queue.js';
 
 import setSocketOptions from 'pathSocketPlatformSrc/setSocketOptions.js';
 

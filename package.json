@@ -2,7 +2,7 @@
   "name": "typhonjs-core-logging-socket",
   "version": "0.1.0",
   "homepage": "https://github.com/typhonjs/typhonjs-backbone-parse/",
-  "description": "Provides a logging plugin for typhonjs-core-logging that sends data over a WebSocket or SockJS.",
+  "description": "Provides a logging plugin for `typhonjs-core-logging` that sends data over a WebSocket or SockJS.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "jspm": {
     "main": "src/SocketLogger.js",
     "dependencies": {
-      "typhonjs-core-backbone-common": "github:typhonjs/typhonjs-core-backbone-common@master",
+      "typhonjs-core-backbone-events": "github:typhonjs/typhonjs-core-backbone-events@master",
       "typhonjs-core-socket": "github:typhonjs/typhonjs-core-socket@master"
     },
     "devDependencies": {

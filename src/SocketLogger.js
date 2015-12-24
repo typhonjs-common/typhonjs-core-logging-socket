@@ -66,15 +66,15 @@ export default class SocketLogger extends TyphonEvents
          else { return false; }
       });
 
+      // Set WebSocket 'protocol'
+      params.protocol = 'socketlogger';
+
       this._params =
       {
          autoConnect: params.autoConnect || true,
          autoReconnect: params.autoReconnect || true,
          socketOptions: setSocketOptions(params)
       };
-
-      // Set 'protocol'
-      this._params.socketOptions.protocol = 'socketlogger';
 
       /**
        * Defines the socket.

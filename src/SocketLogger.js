@@ -30,13 +30,6 @@ const s_STR_EVENT_DISCONNECTED = 'socketlogger:disconnected';
 export default class SocketLogger extends TyphonEvents
 {
    /**
-    * Returns the `host` parameter for socket options.
-    *
-    * @returns {Object}
-    */
-   get host()           { return this._params.host; }
-
-   /**
     * Returns the socket options used by SocketLogger.
     *
     * @returns {Object}
@@ -44,15 +37,16 @@ export default class SocketLogger extends TyphonEvents
    get socketOptions()  { return this._params.socketOptions; }
 
    /**
-    * Creates SocketLogger with the following socket options.
+    * Creates SocketLogger with the following socket options passed in by an object hash of parameters:
     *
-    * @param {string}   host - host name / port.
-    * @param {boolean}  ssl - Indicates if an SSL connection is requested.
-    * @param {object}   serializer - An instance of an object which conforms to JSON for serialization; default (JSON).
-    * @param {boolean}  autoConnect - Indicates that SocketLogger will attempt to connect on construction.
-    * @param {boolean}  autoReconnect - Indicates that SocketLogger will attempt to reconnection on connection lost.
+    * @param {object}   params - Defines an object hash of required and optional parameters including the following:
+    * {string}   host - host name / port.
+    * {boolean}  ssl - (optional) Indicates if an SSL connection is requested; default (false).
+    * {object}   serializer - (optional) An instance of an object which conforms to JSON for serialization; default (JSON).
+    * {boolean}  autoConnect - (optional) Indicates if socket should connect on construction; default (true).
+    * {boolean}  autoReconnect - (optional) Indicates if socket should reconnect on socket closed; default (true).
     */
-   constructor(host, ssl = false, serializer = JSON, autoConnect = true, autoReconnect = true)
+   constructor(params = {})
    {
       super();
 
@@ -74,10 +68,9 @@ export default class SocketLogger extends TyphonEvents
 
       this._params =
       {
-         autoConnect,
-         autoReconnect,
-         host,
-         socketOptions: setSocketOptions(host, ssl, serializer)
+         autoConnect: params.autoConnect || true,
+         autoReconnect: params.autoReconnect || true,
+         socketOptions: setSocketOptions(params)
       };
 
       // Set 'protocol'
@@ -89,7 +82,7 @@ export default class SocketLogger extends TyphonEvents
        */
       this.socket = new Socket(this.socketOptions);
 
-      if (autoConnect)
+      if (this._params.autoConnect)
       {
          this.socket.connect();
       }

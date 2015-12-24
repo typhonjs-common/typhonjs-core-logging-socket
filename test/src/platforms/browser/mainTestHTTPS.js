@@ -2,7 +2,7 @@
 
 import SocketLogger from 'src/SocketLogger.js';
 
-const logger = new SocketLogger('localhost:8001', true);
+const logger = new SocketLogger({ host: 'localhost:8001', ssl: true });
 
 logger.debug('Test debug - 1');
 logger.error('Test error - 2');

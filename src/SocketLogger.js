@@ -7,8 +7,6 @@ import setSocketOptions from 'pathSocketPlatformSrc/setSocketOptions.js';
 
 'use strict';
 
-const s_RECONNECT_INTERVAL = 5000;
-
 const s_STR_EVENT_CONNECTED = 'socketlogger:connected';
 const s_STR_EVENT_DISCONNECTED = 'socketlogger:disconnected';
 
@@ -40,11 +38,11 @@ export default class SocketLogger extends TyphonEvents
     * Creates SocketLogger with the following socket options passed in by an object hash of parameters:
     *
     * @param {object}   params - Defines an object hash of required and optional parameters including the following:
-    * {string}   host - host name / port.
-    * {boolean}  ssl - (optional) Indicates if an SSL connection is requested; default (false).
-    * {object}   serializer - (optional) An instance of an object which conforms to JSON for serialization; default (JSON).
-    * {boolean}  autoConnect - (optional) Indicates if socket should connect on construction; default (true).
-    * {boolean}  autoReconnect - (optional) Indicates if socket should reconnect on socket closed; default (true).
+    * (string)   host - host name / port.
+    * (boolean)  ssl - (optional) Indicates if an SSL connection is requested; default (false).
+    * (object)   serializer - (optional) An instance of an object which conforms to JSON for serialization; default (JSON).
+    * (boolean)  autoConnect - (optional) Indicates if socket should connect on construction; default (true).
+    * (boolean)  autoReconnect - (optional) Indicates if socket should reconnect on socket closed; default (true).
     */
    constructor(params = {})
    {
@@ -71,8 +69,6 @@ export default class SocketLogger extends TyphonEvents
 
       this._params =
       {
-         autoConnect: params.autoConnect || true,
-         autoReconnect: params.autoReconnect || true,
          socketOptions: setSocketOptions(params)
       };
 
@@ -81,11 +77,6 @@ export default class SocketLogger extends TyphonEvents
        * @type {Object}
        */
       this.socket = new Socket(this.socketOptions);
-
-      if (this._params.autoConnect)
-      {
-         this.socket.connect();
-      }
 
       this._init();
    }
@@ -97,7 +88,6 @@ export default class SocketLogger extends TyphonEvents
     */
    connect()
    {
-      this.socket.connect.bind(this.socket);
       this.socket.connect();
    }
 
@@ -165,12 +155,6 @@ export default class SocketLogger extends TyphonEvents
 
          this.messageQueue.empty();
          super.triggerDefer(s_STR_EVENT_DISCONNECTED, this.socketOptions);
-
-         if (this._params.autoReconnect)
-         {
-            // Schedule a reconnection
-            setTimeout(this.socket.connect.bind(this.socket), s_RECONNECT_INTERVAL);
-         }
       });
 
       this.socket.on('socket:message:in', (message) =>

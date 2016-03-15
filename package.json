@@ -1,18 +1,21 @@
 {
   "name": "typhonjs-core-logging-socket",
   "version": "0.1.0",
-  "homepage": "https://github.com/typhonjs/typhonjs-backbone-parse/",
+  "homepage": "https://github.com/typhonjs-common/typhonjs-backbone-parse/",
   "description": "Provides a logging plugin for `typhonjs-core-logging` that sends data over a WebSocket or SockJS.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/typhonjs/typhonjs-core-logging-socket/typhonjs-core-logging-socket.git"
+    "url": "https://github.com/typhonjs-common/typhonjs-core-logging-socket/typhonjs-core-logging-socket.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typhonjs-common/typhonjs-core-logging-socket/issues"
   },
   "jspm": {
     "main": "src/SocketLogger.js",
     "dependencies": {
-      "typhonjs-core-backbone-events": "github:typhonjs/typhonjs-core-backbone-events@master",
-      "typhonjs-core-socket": "github:typhonjs/typhonjs-core-socket@master"
+      "typhonjs-core-backbone-events": "github:typhonjs-backbone/typhonjs-core-backbone-events@master",
+      "typhonjs-core-socket": "github:typhonjs-common/typhonjs-core-socket@master"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.35",
@@ -21,11 +24,12 @@
     }
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "jspm": "^0.16.25",
-    "typhonjs-config-eslint": "^0.2.1",
-    "typhonjs-core-gulptasks": "^0.5.0",
-    "websocket": "^1.0.22"
+    "gulp": "^3.0.0",
+    "jspm": "^0.16.0",
+    "typhonjs-config-eslint": "^0.4.0",
+    "typhonjs-core-gulptasks": "^0.6.0",
+    "typhonjs-npm-build-test": "^0.1.0",
+    "websocket": "^1.0.0"
   },
   "scripts": {
     "test-nodeclient-http": "jspm run ./test/src/platforms/node/mainTestHTTP.js",
